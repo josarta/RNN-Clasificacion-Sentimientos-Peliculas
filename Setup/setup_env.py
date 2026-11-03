@@ -1,11 +1,11 @@
 """
 setup_env.py
 ============
-Script en Python para configurar el entorno virtual, instalar dependencias
-y registrar el kernel de Jupyter para el Miniproyecto 2 (RNN - IMDb).
+Script en Python para configurar el entorno virtual en la raíz del proyecto,
+instalar dependencias y registrar el kernel de Jupyter para el Miniproyecto 2 (RNN - IMDb).
 
 Uso:
-    python setup_env.py
+    python Setup/setup_env.py
 """
 
 import subprocess
@@ -22,24 +22,27 @@ def run(cmd, check=True):
     return subprocess.run(cmd, check=check)
 
 def main():
-    base = Path(__file__).parent
+    # Ubicar siempre la raíz de MiniProyecto2 (carpeta padre de Setup)
+    setup_dir = Path(__file__).parent
+    root_dir = setup_dir.parent if setup_dir.name.lower() == "setup" else setup_dir
     
-    # Buscar requirements.txt en la carpeta Setup o en la raíz
-    req_path = base / REQ_FILE
+    req_path = root_dir / REQ_FILE
     if not req_path.exists():
-        req_path = base.parent / REQ_FILE
+        req_path = setup_dir / REQ_FILE
+
+    target_env = root_dir / ENV_NAME
 
     print("\n" + "="*60)
-    print(" [1/4] Creando entorno virtual:", ENV_NAME)
+    print(" [1/4] Creando entorno virtual en la raíz:", target_env)
     print("="*60)
-    run([sys.executable, "-m", "venv", str(base / ENV_NAME)])
+    run([sys.executable, "-m", "venv", str(target_env)])
 
     if os.name == "nt":
-        python_venv = str(base / ENV_NAME / "Scripts" / "python.exe")
-        pip_venv    = str(base / ENV_NAME / "Scripts" / "pip.exe")
+        python_venv = str(target_env / "Scripts" / "python.exe")
+        pip_venv    = str(target_env / "Scripts" / "pip.exe")
     else:
-        python_venv = str(base / ENV_NAME / "bin" / "python")
-        pip_venv    = str(base / ENV_NAME / "bin" / "pip")
+        python_venv = str(target_env / "bin" / "python")
+        pip_venv    = str(target_env / "bin" / "pip")
 
     print("\n" + "="*60)
     print(" [2/4] Actualizando gestor pip")
@@ -62,7 +65,7 @@ def main():
     ])
 
     print("\n" + "="*60)
-    print(f" [✓] Entorno listo: {ENV_NAME}")
+    print(f" [✓] Entorno listo en: {target_env}")
     print(f" [✓] Kernel registrado: \"{KERNEL_NAME}\"")
     print("="*60 + "\n")
 

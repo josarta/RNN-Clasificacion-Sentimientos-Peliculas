@@ -1,14 +1,14 @@
 # Miniproyecto 2: Clasificación de Sentimientos en Películas (IMDb) con Redes Recurrentes
 
-¡Bienvenido al proyecto! Este trabajo forma parte del curso de **Técnicas de Deep Learning** de la Maestría en Inteligencia Artificial.
+Este trabajo forma parte del curso de **Técnicas de Deep Learning** de la Maestría en Inteligencia Artificial.
 
 ---
 
-## 🎬 ¿De qué trata este proyecto? (En lenguaje sencillo)
+## 🎬 ¿De qué trata este proyecto?
 
-Imagina que tienes miles de comentarios y reseñas de personas que fueron a ver una película en internet. Algunas reseñas dicen cosas increíbles como *"¡la mejor película del año, actuaciones brillantes!"*, mientras que otras dicen *"un desastre total, perdí dos horas de mi vida"*. 
+Imagina que tienes miles de comentarios y reseñas de personas que fueron a cine. Algunas reseñas dicen cosas increíbles como *"¡la mejor película del año, actuaciones brillantes!"*, mientras que otras dicen *"un desastre total, perdí dos horas de mi vida"*. 
 
-El objetivo de este proyecto es enseñarle a una computadora (mediante **Inteligencia Artificial con Redes Neuronales Recurrentes**) a leer esos textos y predecir automáticamente si la opinión fue:
+El objetivo de este proyecto utilizar **Redes Neuronales Recurrentes** que al leer esos textos puedadn predecir automáticamente si la opinión fue:
 * **👍 Positiva (Clase 1):** Al usuario le gustó la película.
 * **👎 Negativa (Clase 0):** Al usuario no le gustó la película.
 
@@ -18,7 +18,7 @@ Para lograrlo, comparamos dos tipos de redes especializadas en procesar secuenci
 
 ## 📁 ¿Cómo está organizada esta carpeta?
 
-Hemos organizado el proyecto de manera limpia para que todo sea fácil de encontrar:
+Esperamos sea fácil de encontrar:
 
 ```text
 MiniProyecto2/
@@ -37,7 +37,7 @@ MiniProyecto2/
 │   └── requirements.txt   <- Copia de respaldo de dependencias para el instalador.
 │
 ├── Latex/                 <- Carpeta con el informe académico:
-│   └── main.tex           <- Documento en formato IEEE (máximo 2 páginas) listo para entregar o subir a Overleaf.
+│   └── main.tex           <- Documento en formato IEEE para subir a Overleaf.
 │
 └── Documentacion/         <- Guías originales de la maestría:
     ├── microproyecto_RNN.pdf           <- Enunciado y objetivos del proyecto.
@@ -86,7 +86,7 @@ Una vez configurado el entorno:
 
 ## 📊 ¿Qué vas a ver al ejecutarlo?
 
-El cuaderno corre de inicio a fin en unos **2 a 3 minutos** en cualquier computador normal (incluso sin tarjeta gráfica / GPU):
+El cuaderno tarde entre **2 a 3 minutos** en cualquier computador normal (incluso sin tarjeta gráfica / GPU):
 
 1. **Exploración:** Verás una gráfica de barras que confirma que las opiniones están 50% positivas y 50% negativas.
 2. **Preprocesamiento:** Se limpian los textos (quitando etiquetas web como `<br />`, puntuación rara y mayúsculas) y se convierten en números con relleno a la izquierda (*pre-padding*) para que la red entienda el mensaje final de la reseña.

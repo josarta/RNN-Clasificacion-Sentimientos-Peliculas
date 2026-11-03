@@ -1,24 +1,26 @@
 @echo off
 REM ============================================================
 REM  setup_env.bat
-REM  Crea el entorno virtual, instala las librerias y registra
-REM  el kernel de Jupyter para el Miniproyecto 2 - RNN
+REM  Crea el entorno virtual en la raiz del proyecto,
+REM  instala las librerias y registra el kernel de Jupyter
 REM ============================================================
 
-cd /d "%~dp0"
+REM Ir a la carpeta raiz de MiniProyecto2 (subir un nivel desde Setup)
+cd /d "%~dp0\.."
+
 SET ENV_NAME=env_miniproyecto2
 SET KERNEL_NAME=Python (MiniProyecto 2 - RNN)
 SET REQ_FILE=requirements.txt
 
 IF NOT EXIST "%REQ_FILE%" (
-    IF EXIST "..\%REQ_FILE%" (
-        SET REQ_FILE=..\%REQ_FILE%
+    IF EXIST "Setup\%REQ_FILE%" (
+        SET REQ_FILE=Setup\%REQ_FILE%
     )
 )
 
 echo.
 echo =====================================================
-echo  [1/4] Creando entorno virtual: %ENV_NAME%
+echo  [1/4] Creando entorno virtual en raiz: %ENV_NAME%
 echo =====================================================
 python -m venv %ENV_NAME%
 IF ERRORLEVEL 1 (
@@ -58,6 +60,8 @@ echo.
 echo =====================================================
 echo  LISTO! Entorno configurado correctamente.
 echo  Kernel registrado como: "%KERNEL_NAME%"
+echo  Ubicacion: %CD%\%ENV_NAME%
+echo.
 echo  Para iniciar Jupyter:
 echo    call %ENV_NAME%\Scripts\activate
 echo    jupyter notebook
