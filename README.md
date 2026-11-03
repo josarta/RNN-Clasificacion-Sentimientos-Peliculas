@@ -102,5 +102,5 @@ El cuaderno tarde entre **2 a 3 minutos** en cualquier computador normal (inclus
 * José Luis Sarta Alvarez
 * Marco Julio Gómez Amado
 
-*Maestría en Inteligencia Artificial — Técnicas de Deep Learning*
+*MAIA— Técnicas de Deep Learning*
 
