@@ -1,0 +1,14 @@
+# Entorno: miniproyecto2_rnn
+# Miniproyecto 2 - Redes Recurrentes (RNN/LSTM/GRU)
+# Python 3.10
+
+pandas>=1.5.0
+numpy>=1.23.0
+matplotlib>=3.6.0
+torch>=2.0.0
+scikit-learn>=1.2.0
+jupyterlab>=4.0.0
+ipykernel>=6.0.0
+nbformat>=5.9.0
+nbconvert>=7.0.0
+
